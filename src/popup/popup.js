@@ -1,19 +1,19 @@
 document.getElementById('saveButton').addEventListener('click', () => {
     const promptInput = document.getElementById('promptInput').value;
   
-    // 获取已保存的prompts
+    // get saved prompts
     chrome.storage.sync.get('prompts', (data) => {
       const prompts = data.prompts || [];
       prompts.push(promptInput);
       
-      // 保存新的prompts
+      // save prompts
       chrome.storage.sync.set({ prompts }, () => {
         displayPrompts();
       });
     });
   });
   
-  // 显示已保存的prompts
+  // show saved prompts
   function displayPrompts() {
     chrome.storage.sync.get('prompts', (data) => {
       const promptList = document.getElementById('promptList');
@@ -26,6 +26,6 @@ document.getElementById('saveButton').addEventListener('click', () => {
     });
   }
   
-  // 初始化时显示已保存的prompts
+  // show saved prompts when popup is opened
   displayPrompts();
   

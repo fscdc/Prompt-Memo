@@ -7,6 +7,9 @@
     "action": {
       "default_popup": "popup/popup.html",
       "default_icon": "assets/img/icon.png"
+    },
+    "background": {
+        "service_worker": "background.js"
     }
   }
   

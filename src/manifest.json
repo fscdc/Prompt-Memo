@@ -1,0 +1,12 @@
+{
+    "manifest_version": 3,
+    "name": "Prompt Memo",
+    "version": "1.0",
+    "description": "a simple prompt memo extension",
+    "permissions": ["storage", "tabs", "activeTab", "scripting", "webRequest"],
+    "action": {
+      "default_popup": "popup/popup.html",
+      "default_icon": "assets/img/icon.png"
+    }
+  }
+  

@@ -86,6 +86,7 @@ ul {
 
 /* 列表项样式 */
 li {
+  width: 90%; /* 宽度 */
   background-color: #fff; /* 列表项背景色 */
   margin: 10px 0; /* 上下间距 */
   padding: 10px; /* 内边距 */
@@ -94,6 +95,8 @@ li {
   display: flex; /* 弹性盒子布局 */
   justify-content: space-between; /* 内容间隔 */
   align-items: center; /* 垂直居中 */
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: lighter;  
 }
 
 /* 按钮组样式 */

@@ -1,15 +1,23 @@
 {
-    "manifest_version": 3,
-    "name": "Prompt Memo",
-    "version": "1.0",
-    "description": "a simple prompt memo extension",
-    "permissions": ["storage", "tabs", "activeTab", "scripting", "webRequest"],
-    "action": {
-      "default_popup": "popup/popup.html",
-      "default_icon": "assets/img/icon.png"
-    },
-    "background": {
-        "service_worker": "background.js"
+  "manifest_version": 3,
+  "name": "Prompt Memo",
+  "version": "1.0",
+  "description": "a simple prompt memo extension",
+  "permissions": ["storage", "tabs", "activeTab", "scripting", "webRequest"],
+  "icons": {
+    "16": "assets/img/icon-16.png",
+    "48": "assets/img/icon-48.png",
+    "128": "assets/img/icon-128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "assets/img/icon-16.png",
+      "48": "assets/img/icon-48.png",
+      "128": "assets/img/icon-128.png"
     }
+  },
+  "background": {
+    "service_worker": "background.js"
   }
-  
+}

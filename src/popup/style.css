@@ -60,7 +60,7 @@ input[type="text"] {
 button {
   place-content: center; /* 内容居中 */
   background-color: #007BFF; /* 按钮背景色 */
-  color: rgb(0, 0, 0); /* 按钮文字颜色 */
+  color: rgb(255, 255, 255); /* 按钮文字颜色 */
   border: none; /* 边框 */
   border-radius: 8px; /* 圆角 */
   padding: 10px 15px; /* 内边距 */
@@ -142,4 +142,41 @@ li {
 .delete-button:hover {
   background-color: #e53935; /* 悬停背景色 */
   transform: scale(1.05); /* 悬停放大效果 */
+}
+
+/* 样式表 */
+.tabs {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+.tab-link {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.tab-link:hover {
+  background-color: #ddd;
+}
+
+.tab-link.active {
+  background-color: #ccc;
+}
+
+.tab-content {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+#memo {
+  display: block;
 }

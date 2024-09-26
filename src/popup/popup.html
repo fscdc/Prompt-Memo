@@ -4,24 +4,29 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <textarea id="promptInput" placeholder="Input your prompt"></textarea>
-  <input type="text" id="tagInput" placeholder="Input your tag"></input>
-
-  <div style="text-align: center;">
-    <button id="saveButton">Save</button>
+  <div id="tabs">
+    <button onclick="showTab('memo')">Memo</button>
+    <button onclick="showTab('about')">About</button>
   </div>
-  
-  <h3 style="text-align: center;">
-    Search
-  </h3>
-  <input type="text" id="searchInput" placeholder="Search by tag or prompt" />
-  
-  <h3 style="text-align: center;">
-    Saved Prompts
-  </h3>
 
-  <ul id="promptList"></ul>
+  <div id="memo" class="tab-content">
+    <textarea id="promptInput" placeholder="Input your prompt"></textarea>
+    <input type="text" id="tagInput" placeholder="Input your tag">
+    <div style="text-align: center;">
+      <button id="saveButton">Save</button>
+    </div>
+    <h3 style="text-align: center;">Search</h3>
+    <input type="text" id="searchInput" placeholder="Search by tag or prompt" />
+    <h3 style="text-align: center;">Saved Prompts</h3>
+    <ul id="promptList"></ul>
+  </div>
 
-  <script src="popup.js"></script>
+  <div id="about" class="tab-content">
+    <h3>Another Functionality</h3>
+  </div>
+
+  <script src="memo.js"></script>
+  <script src="about.js"></script>
+  <script src="tabs.js"></script>
 </body>
 </html>

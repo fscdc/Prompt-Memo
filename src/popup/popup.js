@@ -142,6 +142,7 @@ function displayPrompts(searchQuery = '') {
         // 创建复制按钮
         const copyButton = document.createElement('button');
         copyButton.textContent = 'Copy';
+        copyButton.classList.add('copy-button');
         copyButton.addEventListener('click', () => {
           copyToClipboard(item.prompt);
         });
@@ -149,6 +150,7 @@ function displayPrompts(searchQuery = '') {
         // 创建删除按钮
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
+        deleteButton.classList.add('delete-button');
         deleteButton.addEventListener('click', () => {
           deletePrompt(item.prompt, item.tag);
         });

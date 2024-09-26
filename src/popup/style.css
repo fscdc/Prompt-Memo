@@ -1,81 +1,142 @@
-/* 全局样式 */
+/* 基本设置 */
 body {
-  width: 300px;
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  padding: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 600px; /* 宽度 */
+  height: 800px; /* 高度 */
+  background-color: #24c3e6; /* 背景色 */
+  padding: 20px; /* 内边距 */
+  box-shadow: 0 4px 15px rgba(81, 8, 228, 0.1); /* 阴影 */
+  border-radius: 10px; /* 圆角 */
+  /* clip-path: polygon(
+    30% 0%, 70% 0%, 100% 30%, 100% 70%, 
+    70% 100%, 30% 100%, 0% 70%, 0% 30%
+  ); 云形状 */
 }
 
-h3, h4 {
-  color: #333;
-  margin-top: 10px;
-}
-
-textarea, input {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-
-input {
-  height: 30px;
-}
-
-button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 5px 10px; /* 减少按钮的 padding */
-  cursor: pointer;
-  margin-top: 10px;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  background-color: #fff;
-  margin: 5px 0;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* 按钮组的样式 */
-li .button-group {
-  display: flex;
-  gap: 5px;
-}
-
-/* Copy 和 Delete 按钮单独样式 */
-li button {
-  background-color: #f44336;
-  font-size: 12px; /* 减小按钮字体 */
-}
-
-li button:hover {
-  background-color: #e53935;
-  transition: background-color 0.3s;
-}
-
-/* 标签标题 */
-h4 {
-  margin-top: 15px;
+/* 标题样式 */
+h3 {
+  color: #333; /* 标题颜色 */
+  margin-top: 20px; /* 上边距 */
+  font-size: 1.5em; /* 字体大小 */
+  font-family: 'Times New Roman', Times, serif;
   font-weight: bold;
-  color: #555;
+}
+
+h4 {
+  color: #370707; /* 子标题颜色 */
+  margin-top: 15px; /* 上边距 */
+  font-size: 1.2em; /* 字体大小 */
+  font-family: fantasy;
+  font-weight: bold;
+}
+
+/* 文本区域样式 */
+textarea {
+  width: 90%; /* 宽度 */
+  height: 100px; /* 高度 */
+  padding: 15px; /* 内边距 */
+  border: 1px solid #ccc; /* 边框 */
+  border-radius: 8px; /* 圆角 */
+  resize: none; /* 禁止改变大小 */
+  font-size: 1em; /* 字体大小 */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* 阴影 */
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: lighter;
+}
+
+/* 输入框样式 */
+input[type="text"] {
+  width: 90%; /* 宽度 */
+  padding: 15px; /* 内边距 */
+  border: 1px solid #ccc; /* 边框 */
+  border-radius: 8px; /* 圆角 */
+  resize: none; /* 禁止改变大小 */
+  font-size: 1em; /* 字体大小 */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* 阴影 */
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: lighter;
+}
+
+/* 按钮样式 */
+button {
+  place-content: center; /* 内容居中 */
+  background-color: #007BFF; /* 按钮背景色 */
+  color: rgb(0, 0, 0); /* 按钮文字颜色 */
+  border: none; /* 边框 */
+  border-radius: 8px; /* 圆角 */
+  padding: 10px 15px; /* 内边距 */
+  cursor: pointer; /* 鼠标指针 */
+  margin-top: 10px; /* 上边距 */
+  font-size: 1em; /* 字体大小 */
+  transition: background-color 0.3s, transform 0.2s; /* 动效 */
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
+
+/* 悬停时按钮样式 */
+button:hover {
+  background-color: #0056b3; /* 悬停背景色 */
+  transform: scale(1.05); /* 悬停放大效果 */
+}
+
+/* 列表样式 */
+ul {
+  list-style-type: none; /* 去掉默认列表样式 */
+  padding: 0; /* 去掉内边距 */
+}
+
+/* 列表项样式 */
+li {
+  background-color: #fff; /* 列表项背景色 */
+  margin: 10px 0; /* 上下间距 */
+  padding: 10px; /* 内边距 */
+  border-radius: 8px; /* 圆角 */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* 阴影 */
+  display: flex; /* 弹性盒子布局 */
+  justify-content: space-between; /* 内容间隔 */
+  align-items: center; /* 垂直居中 */
+}
+
+/* 按钮组样式 */
+.button-group {
+  display: flex; /* 弹性盒子布局 */
+  gap: 10px; /* 按钮间隔 */
+}
+
+/* 复制按钮样式 */
+.copy-button {
+  background-color: #007BFF; /* 复制按钮背景色 */
+  color: white; /* 复制按钮文字颜色 */
+  border: none; /* 边框 */
+  border-radius: 8px; /* 圆角 */
+  padding: 10px 15px; /* 内边距 */
+  cursor: pointer; /* 鼠标指针 */
+  transition: background-color 0.3s, transform 0.2s; /* 动效 */
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
+
+/* 复制按钮悬停样式 */
+.copy-button:hover {
+  background-color: #0056b3; /* 悬停背景色 */
+  transform: scale(1.05); /* 悬停放大效果 */
+}
+
+/* 删除按钮样式 */
+.delete-button {
+  background-color: #f44336; /* 删除按钮背景色 */
+  color: white; /* 删除按钮文字颜色 */
+  border: none; /* 边框 */
+  border-radius: 8px; /* 圆角 */
+  padding: 10px 15px; /* 内边距 */
+  cursor: pointer; /* 鼠标指针 */
+  transition: background-color 0.3s, transform 0.2s; /* 动效 */
+  /* 艺术字体 */
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
+
+/* 删除按钮悬停样式 */
+.delete-button:hover {
+  background-color: #e53935; /* 悬停背景色 */
+  transform: scale(1.05); /* 悬停放大效果 */
 }

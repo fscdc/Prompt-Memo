@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Prompt Memo</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <textarea id="promptInput" placeholder="Input your prompt"></textarea>
-  <input type="text" id="tagInput" placeholder="Input a tag" />
-  <button id="saveButton">Save</button>
+  <input type="text" id="tagInput" placeholder="Input your tag"></input>
+
+  <div style="text-align: center;">
+    <button id="saveButton">Save</button>
+  </div>
   
-  <h3>Search</h3>
+  <h3 style="text-align: center;">
+    Search
+  </h3>
   <input type="text" id="searchInput" placeholder="Search by tag or prompt" />
   
-  <h3>Saved Prompts</h3>
+  <h3 style="text-align: center;">
+    Saved Prompts
+  </h3>
+
   <ul id="promptList"></ul>
 
   <script src="popup.js"></script>

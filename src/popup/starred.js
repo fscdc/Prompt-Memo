@@ -30,10 +30,21 @@ document.getElementById('starButton').addEventListener('click', () => {
       // 遍历已保存的starred页面
       data.starredPages.forEach((page, index) => {
         const li = document.createElement('li');
-        li.textContent = `${page.title} - ${page.url}`;
-  
+
+        const titleText = document.createTextNode('Title: ' + page.title);
+        const urlText = document.createTextNode('URL: ' + page.url);
+        li.appendChild(titleText);
+        li.appendChild(document.createElement('br')); // Add a line break
+        li.appendChild(urlText);
+
+        
+        // 创建按钮组
+        const buttonGroup = document.createElement('div');
+        buttonGroup.classList.add('button-group');
+
         // 创建打开页面的按钮
         const openButton = document.createElement('button');
+        openButton.classList.add('open-button');
         openButton.textContent = 'Open';
         openButton.style.marginLeft = '10px';
         openButton.addEventListener('click', () => {
@@ -42,14 +53,17 @@ document.getElementById('starButton').addEventListener('click', () => {
   
         // 创建删除按钮
         const deleteButton = document.createElement('button');
+        deleteButton.classList.add('delete-button');
         deleteButton.textContent = 'Delete';
         deleteButton.style.marginLeft = '10px';
         deleteButton.addEventListener('click', () => {
           deleteStarredPage(index);
         });
   
-        li.appendChild(openButton);
-        li.appendChild(deleteButton);
+        buttonGroup.appendChild(openButton);
+        buttonGroup.appendChild(deleteButton);
+
+        li.appendChild(buttonGroup);
         starredList.appendChild(li);
       });
     });
@@ -72,11 +86,11 @@ document.getElementById('starButton').addEventListener('click', () => {
   document.addEventListener('DOMContentLoaded', () => {
     displayStarredPages();
   });
-    // 获取当前页面的URL并显示在页面上
-  chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-    const currentTab = tabs[0];
-    const currentURL = currentTab.url;
+  //   // 获取当前页面的URL并显示在页面上
+  // chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+  //   const currentTab = tabs[0];
+  //   const currentURL = currentTab.url;
     
-    // 显示在页面的特定区域
-    document.getElementById('currentURL').textContent = currentURL;
-  });
+  //   // 显示在页面的特定区域
+  //   document.getElementById('currentURL').textContent = currentURL;
+  // });

@@ -21,51 +21,6 @@ document.getElementById('saveButton').addEventListener('click', () => {
   });
 });
 
-// 显示保存的 prompts，按 tag 分组
-function displayPrompts(searchQuery = '') {
-  chrome.storage.sync.get('prompts', (data) => {
-    const promptList = document.getElementById('promptList');
-    promptList.innerHTML = ''; // 清空列表
-
-    const filteredPrompts = filterPrompts(data.prompts || [], searchQuery);
-    const groupedPrompts = groupByTag(filteredPrompts);
-
-    // 按 tag 分组展示
-    for (const tag in groupedPrompts) {
-      const tagHeader = document.createElement('h4');
-      tagHeader.textContent = `Tag: ${tag}`;
-      promptList.appendChild(tagHeader);
-
-      const ul = document.createElement('ul');
-      groupedPrompts[tag].forEach((item, index) => {
-        const li = document.createElement('li');
-        li.textContent = item.prompt;
-
-        // 创建复制按钮
-        const copyButton = document.createElement('button');
-        copyButton.textContent = 'Copy';
-        copyButton.style.marginLeft = '10px';
-        copyButton.addEventListener('click', () => {
-          copyToClipboard(item.prompt);
-        });
-
-        // 创建删除按钮
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Delete';
-        deleteButton.style.marginLeft = '10px';
-        deleteButton.addEventListener('click', () => {
-          deletePrompt(item.prompt, item.tag);
-        });
-
-        li.appendChild(copyButton);
-        li.appendChild(deleteButton);
-        ul.appendChild(li);
-      });
-
-      promptList.appendChild(ul);
-    }
-  });
-}
 
 // 将 prompts 按 tag 分组
 function groupByTag(prompts) {

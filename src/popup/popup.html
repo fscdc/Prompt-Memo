@@ -5,10 +5,11 @@
 </head>
 <body>
   <div id="tabs">
-    <button onclick="showTab('memo')">Memo</button>
-    <button onclick="showTab('about')">About</button>
-    <button onclick="showTab('starred')">Starred</button>
+    <button id="memoTab">Memo</button>
+    <button id="starredTab">Starred</button>
+    <button id="aboutTab">About</button>
   </div>
+
 
   <div id="memo" class="tab-content">
     <textarea id="promptInput" placeholder="Input your prompt"></textarea>
@@ -26,15 +27,15 @@
     <h3>About This Extension</h3>
     <p>Developer: <a href="https://fscdc.github.io/" target="_blank">Sicheng Feng</a>, Tianhe Chen</p>
     <p>Version: 1.0.0</p>
-    <p>This extension helps you save and manage your prompts efficiently.</p>
+    <p>This extension helps you save and manage your prompts efficiently. And we add some useful tools for u!</p>
     <p>For more information, visit our <a href="https://github.com/fscdc/Prompt-Memo" target="_blank">Repo</a>.</p>
   </div>
 
   <div id="starred" class="tab-content">
-    <h3>Current Page</h3>
-    <p id="currentURL"></p> <!-- 显示当前链接的区域 -->
+    <!-- <h3>Current Page</h3>
+    <p id="currentURL"></p> 显示当前链接的区域 -->
 
-    <h3>Starred Pages</h3>
+    <h3>Star Current Pages</h3>
     <input type="text" id="pageTitle" placeholder="Enter a custom title for the page">
     <div style="text-align: center;">
       <button id="starButton">Star this Page</button>
@@ -45,7 +46,8 @@
   
   <script src="memo.js"></script>
   <script src="about.js"></script>
-  <script src="tabs.js"></script>
   <script src="starred.js"></script>
+
+  <script src="tabs.js"></script>
 </body>
 </html>

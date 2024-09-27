@@ -1,3 +1,4 @@
+//memo.js
 document.getElementById('saveButton').addEventListener('click', () => {
   const promptInput = document.getElementById('promptInput').value;
   const tagInput = document.getElementById('tagInput').value || 'No Tag';  // 如果没有输入 tag，默认值为 'No Tag'

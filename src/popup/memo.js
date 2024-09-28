@@ -71,7 +71,6 @@ document.getElementById('searchInput').addEventListener('input', (event) => {
   displayPrompts(searchQuery); // 根据搜索框的输入重新显示 prompts
 });
 
-// 显示保存的 prompts，按 tag 分组
 function displayPrompts(searchQuery = '') {
   chrome.storage.sync.get('prompts', (data) => {
     const promptList = document.getElementById('promptList');
@@ -89,7 +88,11 @@ function displayPrompts(searchQuery = '') {
       const ul = document.createElement('ul');
       groupedPrompts[tag].forEach((item, index) => {
         const li = document.createElement('li');
-        li.textContent = item.prompt;
+
+        // 默认显示 prompt 的文本
+        const promptText = document.createElement('span');
+        promptText.textContent = item.prompt;
+        promptText.classList.add('prompt-text');
 
         // 创建按钮组
         const buttonGroup = document.createElement('div');
@@ -111,8 +114,18 @@ function displayPrompts(searchQuery = '') {
           deletePrompt(item.prompt, item.tag);
         });
 
+        // 创建编辑按钮
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Edit';
+        editButton.classList.add('edit-button');
+        editButton.addEventListener('click', () => {
+          enableEditingPrompt(li, item.prompt, item.tag);
+        });
+
         buttonGroup.appendChild(copyButton);
         buttonGroup.appendChild(deleteButton);
+        buttonGroup.appendChild(editButton);
+        li.appendChild(promptText);
         li.appendChild(buttonGroup);
         ul.appendChild(li);
       });
@@ -121,6 +134,55 @@ function displayPrompts(searchQuery = '') {
     }
   });
 }
+function enableEditingPrompt(li, promptToEdit, tagToEdit) {
+  // 清空 li 的内容
+  li.innerHTML = '';
+
+  // 创建新的输入框，允许编辑 prompt
+  const inputField = document.createElement('input');
+  inputField.type = 'text';
+  inputField.value = promptToEdit;
+  inputField.classList.add('edit-input');
+
+  // 创建保存按钮
+  const saveButton = document.createElement('button');
+  saveButton.textContent = 'Save';
+  saveButton.classList.add('save-button');
+  saveButton.addEventListener('click', () => {
+    const updatedPrompt = inputField.value;
+
+    chrome.storage.sync.get('prompts', (data) => {
+      const prompts = data.prompts || [];
+
+      // 更新 prompt
+      const updatedPrompts = prompts.map(item => {
+        if (item.prompt === promptToEdit && item.tag === tagToEdit) {
+          return { prompt: updatedPrompt, tag: tagToEdit };
+        }
+        return item;
+      });
+
+      // 保存更新后的 prompts
+      chrome.storage.sync.set({ prompts: updatedPrompts }, () => {
+        displayPrompts(); // 刷新列表
+      });
+    });
+  });
+
+  // 创建取消按钮
+  const cancelButton = document.createElement('button');
+  cancelButton.textContent = 'Cancel';
+  cancelButton.classList.add('cancel-button');
+  cancelButton.addEventListener('click', () => {
+    displayPrompts(); // 取消编辑时，刷新显示
+  });
+
+  // 将输入框和按钮添加到 li 中
+  li.appendChild(inputField);
+  li.appendChild(saveButton);
+  li.appendChild(cancelButton);
+}
+
 
 // 页面加载时显示保存的 prompts
 displayPrompts();

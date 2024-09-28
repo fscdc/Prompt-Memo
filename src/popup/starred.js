@@ -22,52 +22,43 @@ document.getElementById('starButton').addEventListener('click', () => {
   });
   
   // 显示已保存的starred页面
-  function displayStarredPages() {
-    chrome.storage.sync.get('starredPages', (data) => {
-      const starredList = document.getElementById('starredList');
-      starredList.innerHTML = ''; // 清空列表
-  
-      // 遍历已保存的starred页面
-      data.starredPages.forEach((page, index) => {
-        const li = document.createElement('li');
+function displayStarredPages() {
+  chrome.storage.sync.get('starredPages', (data) => {
+    const starredList = document.getElementById('starredList');
+    starredList.innerHTML = ''; // 清空列表
 
-        const titleText = document.createTextNode('Title: ' + page.title);
-        const urlText = document.createTextNode('URL: ' + page.url);
-        li.appendChild(titleText);
-        li.appendChild(document.createElement('br')); // Add a line break
-        li.appendChild(urlText);
+    // 遍历已保存的starred页面，只显示标题，不显示URL
+    data.starredPages.forEach((page, index) => {
+      const li = document.createElement('li');
+      li.textContent = page.title; // 只显示标题
 
-        
-        // 创建按钮组
-        const buttonGroup = document.createElement('div');
-        buttonGroup.classList.add('button-group');
-
-        // 创建打开页面的按钮
-        const openButton = document.createElement('button');
-        openButton.classList.add('open-button');
-        openButton.textContent = 'Open';
-        openButton.style.marginLeft = '10px';
-        openButton.addEventListener('click', () => {
-          chrome.tabs.create({ url: page.url });
-        });
-  
-        // 创建删除按钮
-        const deleteButton = document.createElement('button');
-        deleteButton.classList.add('delete-button');
-        deleteButton.textContent = 'Delete';
-        deleteButton.style.marginLeft = '10px';
-        deleteButton.addEventListener('click', () => {
-          deleteStarredPage(index);
-        });
-  
-        buttonGroup.appendChild(openButton);
-        buttonGroup.appendChild(deleteButton);
-
-        li.appendChild(buttonGroup);
-        starredList.appendChild(li);
+      // 创建打开页面的按钮
+      const openButton = document.createElement('button');
+      openButton.textContent = 'Open';
+      openButton.style.marginLeft = '10px';
+      openButton.addEventListener('click', () => {
+        chrome.tabs.create({ url: page.url });
       });
+
+      // 创建删除按钮
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Delete';
+      deleteButton.style.marginLeft = '10px';
+      deleteButton.addEventListener('click', () => {
+        deleteStarredPage(index);
+      });
+
+      // 将按钮添加到列表项
+      const buttonGroup = document.createElement('div');
+      buttonGroup.classList.add('button-group');
+      buttonGroup.appendChild(openButton);
+      buttonGroup.appendChild(deleteButton);
+      
+      li.appendChild(buttonGroup);
+      starredList.appendChild(li);
     });
-  }
+  });
+}
   
   // 删除已保存的starred页面
   function deleteStarredPage(index) {

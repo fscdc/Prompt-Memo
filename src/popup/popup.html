@@ -29,20 +29,21 @@
     <p>Version: 1.0.0</p>
     <p>This extension helps you save and manage your prompts efficiently. And we add some useful tools for u!</p>
     <p>For more information, visit our <a href="https://github.com/fscdc/Prompt-Memo" target="_blank">Repo</a>.</p>
+    <p>Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change (We will review it as soon as possible).</p>
   </div>
 
   <div id="starred" class="tab-content">
-    <!-- <h3>Current Page</h3>
-    <p id="currentURL"></p> 显示当前链接的区域 -->
-
-    <h3>Star Current Pages</h3>
-    <input type="text" id="pageTitle" placeholder="Enter a custom title for the page">
+    <h3>Star Current Conversations</h3>
+    <p id="currentURL"></p>
+    <input type="text" id="pageTitle" placeholder="Enter a custom title for this conversation">
     <div style="text-align: center;">
-      <button id="starButton">Star this Page</button>
+      <button id="starButton">Save this Conversation</button>
     </div>
-    <h3 style="text-align: center;">Saved Pages</h3>
-    <ul id="starredList"></ul>
+    <h3 style="text-align: center;">Saved Conversations</h3>
+    <ul id="starredList" class="starred-list"></ul> <!-- 仍然保留用于显示保存内容的列表 -->
   </div>
+  
+  
   
   <script src="memo.js"></script>
   <script src="about.js"></script>

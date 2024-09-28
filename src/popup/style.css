@@ -86,25 +86,30 @@ ul {
 
 /* 列表项样式 */
 li {
-  width: 90%; /* 宽度 */
-  background-color: #fff; /* 列表项背景色 */
-  margin: 10px 0; /* 上下间距 */
-  padding: 10px; /* 内边距 */
-  border-radius: 8px; /* 圆角 */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* 阴影 */
-  display: flex; /* 弹性盒子布局 */
-  justify-content: space-between; /* 内容间隔 */
-  align-items: center; /* 垂直居中 */
+  width: 90%;
+  background-color: #fff;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-weight: lighter;  
-  /* overflow: hidden;
-  white-space: nowrap; */
+  font-weight: lighter;
+  word-wrap: break-word; /* 让标题过长时换行 */
 }
-
+/* 修改标题样式，去掉标题前的 "Title" */
+li p {
+  margin: 0;
+  flex-grow: 1; /* 确保标题占据最大空间 */
+  margin-right: 10px;
+}
 /* 按钮组样式 */
 .button-group {
   display: flex; /* 弹性盒子布局 */
   gap: 10px; /* 按钮间隔 */
+  margin-left: auto;
 }
 
 /* 复制按钮样式 */

@@ -5,7 +5,8 @@
 A simple prompt memo extension to help you manage your useful prompts.
 
 ## 2. Demo
-TODO
+[![观看视频](https://img.youtube.com/vi/rULrGjo_th8/0.jpg)](https://www.youtube.com/watch?v=rULrGjo_th8)
+
 
 ## 3. Installation
 

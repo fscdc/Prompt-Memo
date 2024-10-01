@@ -3,7 +3,7 @@
   "name": "Prompt Memo",
   "version": "1.0.0",
   "description": "a simple prompt memo extension",
-  "permissions": ["storage", "tabs", "activeTab", "scripting", "webRequest"],
+  "permissions": ["storage", "tabs", "activeTab"],
   "icons": {
     "16": "assets/img/icon-16.png",
     "48": "assets/img/icon-48.png",

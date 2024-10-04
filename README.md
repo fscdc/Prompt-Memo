@@ -13,7 +13,8 @@ A simple prompt memo extension to help you manage your useful prompts.
 1. Clone this repo and use 'Load Unpacked Extension'. Read more on [Development Basics](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked).
 
 
-2. Or you can download the extension from the [Chrome Web Store]().
+2. Or you can download the extension from the [Chrome Web Store](https://chromewebstore.google.com/detail/prompt-memo/bpeebljgkfnfgfgeilbmoonnbfohmgek
+).
 
 
 ## 4. Contributing
